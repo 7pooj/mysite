@@ -1,5 +1,7 @@
+version: '3.8'  # <--- THIS LINE MUST BE AT THE TOP
+
 services:
-  web-app:          # <--- This is the Service Name
+  web-app:
     image: nginx:alpine
     networks:
       - site-net
@@ -10,3 +12,7 @@ services:
       - "8081:80"
     networks:
       - site-net
+
+networks:
+  site-net:
+    driver: overlay
