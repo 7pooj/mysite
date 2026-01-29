@@ -1,19 +1,9 @@
 version: '3.8'
 services:
   web:
-    image: my-custom-site:latest
-    build: .
-    deploy:
-      replicas: 3
-    networks:
-      - site-net
-
-  proxy:
-    image: nginx:alpine
+    image: custom-nginx:latest  # <--- MUST match what Jenkins builds
     ports:
-      - "8081:80"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - "8081:80"               # <--- Use 8081 to avoid the "Port 80" error
     networks:
       - site-net
 
