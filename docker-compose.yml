@@ -1,8 +1,8 @@
-version: '3.8'  # <--- THIS LINE MUST BE AT THE TOP
+version: '3.8'
 
 services:
   web-app:
-    image: nginx:alpine
+    image: my-site-content:latest  # <--- FIXED THIS LINE
     networks:
       - site-net
 
