@@ -1,12 +1,12 @@
-version: '3.8'
 services:
-  web:
-    image: custom-nginx:latest  # <--- MUST match what Jenkins builds
-    ports:
-      - "8081:80"               # <--- Use 8081 to avoid the "Port 80" error
+  web-app:          # <--- This is the Service Name
+    image: nginx:alpine
     networks:
       - site-net
 
-networks:
-  site-net:
-    driver: overlay
+  proxy:
+    image: custom-nginx:latest
+    ports:
+      - "8081:80"
+    networks:
+      - site-net
