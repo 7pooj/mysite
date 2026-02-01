@@ -1,2 +1,142 @@
-<h1> RASP.Sentrix4.Lab2 i dont want to face errors again and  again </h1>
-<h2>dfghjk<h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentrix Infrastructure Project | Network Overview</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-blue: #38bdf8;
+            --accent-green: #22c55e;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid #334155;
+            margin-bottom: 40px;
+        }
+
+        h1 { font-size: 2.5rem; color: var(--accent-blue); margin-bottom: 10px; }
+        .subtitle { color: var(--text-dim); font-size: 1.1rem; }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover { transform: translateY(-5px); border-color: var(--accent-blue); }
+
+        .card i { font-size: 2rem; color: var(--accent-blue); margin-bottom: 15px; }
+
+        .card h3 { margin-top: 0; border-bottom: 1px solid #334155; padding-bottom: 10px; }
+
+        ul { list-style: none; padding: 0; }
+        li { margin-bottom: 12px; font-size: 0.95rem; display: flex; align-items: center; }
+        li i { font-size: 1rem; margin-right: 10px; margin-bottom: 0; color: var(--accent-green); }
+
+        .code-snippet {
+            background: #000;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #d1d5db;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .status-tag {
+            background: rgba(34, 197, 94, 0.2);
+            color: var(--accent-green);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><i class="fas fa-shield-alt"></i> SENTRIX PROJECT</h1>
+    <p class="subtitle">Secure Hybrid Infrastructure & Centralized Directory Services</p>
+</header>
+
+<div class="grid-container">
+    <div class="card">
+        <span class="status-tag">Connected</span>
+        <i class="fas fa-network-wired"></i>
+        <h3>Secure VPN Tunnel</h3>
+        <ul>
+            <li><i class="fas fa-check-circle"></i> Site-to-Site IPsec Integration</li>
+            <li><i class="fas fa-check-circle"></i> AES-256 Encryption Standard</li>
+            <li><i class="fas fa-check-circle"></i> Encapsulating Security Payload (ESP)</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <span class="status-tag">Active</span>
+        <i class="fas fa-server"></i>
+        <h3>Windows AD DC</h3>
+        <ul>
+            <li><i class="fas fa-check-circle"></i> Domain: <code>sentrix.local</code></li>
+            <li><i class="fas fa-check-circle"></i> Primary DNS & Global Catalog</li>
+            <li><i class="fas fa-check-circle"></i> Group Policy (GPO) Management</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <span class="status-tag">Joined</span>
+        <i class="fab fa-linux"></i>
+        <h3>Linux (Ubuntu/RHEL)</h3>
+        <ul>
+            <li><i class="fas fa-link"></i> Joined via SSSD & Realm</li>
+            <li><i class="fas fa-search"></i> AD DNS Name Resolution</li>
+        </ul>
+        <span class="code-snippet">realm join -U admin sentrix.local</span>
+    </div>
+
+    <div class="card">
+        <span class="status-tag">Monitoring</span>
+        <i class="fas fa-chart-line"></i>
+        <h3>jELK Stack</h3>
+        <ul>
+            <li><i class="fas fa-database"></i> Elasticsearch - Log Storage</li>
+            <li><i class="fas fa-filter"></i> Logstash - Data Processing</li>
+            <li><i class="fas fa-desktop"></i> Kibana - Visual Dashboards</li>
+        </ul>
+    </div>
+</div>
+
+<div style="max-width: 1200px; margin: 40px auto; padding: 20px; background: var(--card-bg); border-radius: 12px; border: 1px solid #334155;">
+    <h3><i class="fas fa-project-diagram"></i> Architecture Logic</h3>
+    <p>The <b>Sentrix</b> framework establishes a secure perimeter via the VPN. The <b>Windows DC</b> acts as the Single Source of Truth for identity. The <b>Linux Nodes</b> point to the DC for DNS queries, allowing them to resolve internal hostnames like <code>app-server.sentrix.local</code>. All system logs are shipped via Filebeat to the <b>ELK Stack</b> for real-time security auditing.</p>
+</div>
+
+</body>
+</html>
